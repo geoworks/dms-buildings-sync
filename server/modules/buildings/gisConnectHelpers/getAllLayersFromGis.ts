@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import IsAuthorizedInGis from './isAuthorizedInGis';//getElevated
 import GisAuth from './gisAuth';
 import { SessionObject, LastAuthUpdateObject, Layer, GeometryTypeHandle } from './../interfaces';
-import getGisPlace from './getGisPlace';
+// import getGisPlace from './getGisPlace';
 import { hasOwnPropertyFromUnknown } from '../../../deql-ms-server/tools/utils';
 import options from '../../../deql-ms-server/tools/options';
 const { config } = options;
@@ -28,7 +28,7 @@ let getAllLayersFromGis = async (
       'variables': {},
       'query': 'query ($params: JSON) {\n  allLayers(params: $params) {_id\n    props}\n}\n',//\n    props\n    type\n    displayName\n    __typename\n  //\n    
     };
-    let req = await fetch(config.gis.http + '://' + getGisPlace() + '/graphql', {
+    let req = await fetch('http' + '://' + config.gis.host + ':' + config.gis.port + '/graphql', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

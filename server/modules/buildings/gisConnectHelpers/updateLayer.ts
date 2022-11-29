@@ -6,7 +6,7 @@ import {
   LastAuthUpdateObject,
   GisGeometryTypeLayer,
 } from '../interfaces';
-import getGisPlace from './getGisPlace';
+// import getGisPlace from './getGisPlace';
 import { hasOwnPropertyFromUnknown } from '../../../deql-ms-server/tools/utils';
 import options from '../../../deql-ms-server/tools/options';
 const { config } = options;
@@ -88,7 +88,7 @@ export let updateLayer = async (
       }
     ];
     let bodyStringified = JSON.stringify(body);
-    let req = await fetch(config.gis.http + '://' + getGisPlace() + '/graphql', {
+    let req = await fetch('http' + '://' + config.gis.host + ':' + config.gis.port + '/graphql', {
       method: 'POST',
       headers: {
         'accept': '*/*',

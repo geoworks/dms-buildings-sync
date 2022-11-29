@@ -6,7 +6,6 @@ import {
   LastAuthUpdateObject,
   GisGeometryTypeLayer,
 } from '../interfaces';
-import getGisPlace from './getGisPlace';
 import { hasOwnPropertyFromUnknown } from '../../../deql-ms-server/tools/utils';
 import options from '../../../deql-ms-server/tools/options';
 const { config } = options;
@@ -155,9 +154,8 @@ export let createLayer = async (
         },
         "query": "mutation createLayer($roleName: String, $displayName: String!, $projectName: String, $props: JSON!, $type: String!) {\n  createLayer(displayName: $displayName, projectName: $projectName, props: $props, type: $type, roleName: $roleName) {\n    _id\n    props\n    type\n    displayName\n    __typename\n  }\n}\n"
       }
-
     ];
-    let req = await fetch(config.gis.http + '://' + getGisPlace() + '/graphql', {
+    let req = await fetch('http' + '://' + config.gis.host + ':' + config.gis.port + '/graphql', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

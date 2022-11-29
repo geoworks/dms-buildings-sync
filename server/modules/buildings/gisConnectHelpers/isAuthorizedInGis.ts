@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { hasOwnPropertyFromUnknown } from '../../../deql-ms-server/tools/utils';
 import { SessionObject } from '../interfaces';
-import getGisPlace from './getGisPlace';
+// import getGisPlace from './getGisPlace';
 import options from '../../../deql-ms-server/tools/options';
 const { config } = options;
 
@@ -22,7 +22,7 @@ let IsAuthorizedInGis = async (
               }
           }`,
     });
-    let req = await fetch(config.gis.http + '://' + getGisPlace() + '/graphql', {
+    let req = await fetch('http' + '://' + config.gis.host + ':' + config.gis.port + '/graphql', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

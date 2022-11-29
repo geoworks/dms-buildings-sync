@@ -1,7 +1,6 @@
 import fetch from 'node-fetch';
 import crypto from 'crypto';
 import { SessionObject } from './../interfaces';
-import getGisPlace from './getGisPlace';
 import options from './../../../deql-ms-server/tools/options';
 import { hasOwnPropertyFromUnknown } from '../../../deql-ms-server/tools/utils';
 const { config } = options;
@@ -9,7 +8,7 @@ const { config } = options;
 let GisAuth = async (sessionObject: SessionObject) => {
   try {
     let password = crypto.createHash('md5').update(config.gis.password).digest('hex');
-    let req = await fetch(config.gis.http + '://' + getGisPlace() + '/graphql', {
+    let req = await fetch('http' + '://' + config.gis.host + ':' + config.gis.port + '/graphql', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

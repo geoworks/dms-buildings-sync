@@ -8,7 +8,7 @@ import {
   FeatureFromGisogdToCreateInGis,
   FeatureToUpdateInGis,
 } from '../interfaces';
-import getGisPlace from './getGisPlace';
+// import getGisPlace from './getGisPlace';
 import options from '../../../deql-ms-server/tools/options';
 const { config } = options;
 
@@ -34,7 +34,7 @@ export let updateGisLayerFeatures = async (
       'variables': { 'createFeatures': createFeaturesArray, 'updateFeatures': updateFeaturesArray, 'deleteFeatures': deleteFeaturesArray, 'layerId': layerId },
       'query': 'mutation ($createFeatures: [JSON], $updateFeatures: [JSON], $deleteFeatures: [JSON], $layerId: String!) {\n  updateFeatures(createFeatures: $createFeatures, updateFeatures: $updateFeatures, deleteFeatures: $deleteFeatures, layerId: $layerId)\n}\n',
     };
-    let req = await fetch(config.gis.http + '://' + getGisPlace() + '/graphql', {
+    let req = await fetch('http' + '://' + config.gis.host + ':' + config.gis.port + '/graphql', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
