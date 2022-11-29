@@ -1,0 +1,27 @@
+{
+  "name": "dms-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "submodules_init": "git submodule init && git submodule update",
+    "init_server": "cd server && npm i",
+    "init_client": "cd client && npm i",
+    "init": "npm run init_client && npm run init_server",
+    "server": "set DEBUG=deql* && nodemon --ignore ./client --ignore ./server/server_build/* --ext \"ts,json\"  --exec \"tsc --project ./server/deql-ms-server/ && node ./server/server_build/deql-ms-server/index\"",
+    "client": "cd client && npm start",
+    "build_binaries": "cd server && tsc --project ./deql-ms-server/ && cd ./../ && node ./server/server_build/deql-ms-server/exeBuild.js",
+    "build_client": "cd client && npm run build",
+    "test": "cd tests && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoworks/dms-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geoworks/dms-template/issues"
+  },
+  "homepage": "https://github.com/geoworks/dms-template#readme"
+}

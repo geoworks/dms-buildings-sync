@@ -1,0 +1,26 @@
+{
+  "name": "dms-template-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "deql-ms-server/index.js",
+  "scripts": {
+    "server": "export DEBUG=deql* && nodemon --ignore ./deql-ms-client --ignore ./client --exec babel-node ./deql-ms-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoworks/dms-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geoworks/dms-template/issues"
+  },
+  "homepage": "https://github.com/geoworks/dms-template#readme",
+  "devDependencies": {
+    "http-proxy": "1.17.0",
+    "nodemon": "^1.17.4"
+  },
+  "dependencies": {
+    "deql-ms-server": "file:deql-ms-server"
+  }
+}

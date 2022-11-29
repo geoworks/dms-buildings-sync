@@ -1,0 +1,8 @@
+server/node_modules/
+server/client_build/
+*.log
+/static/share/
+volume/
+node_modules/
+server_build/
+bin/

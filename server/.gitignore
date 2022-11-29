@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+*.log
+/.vscode/launch.json
+.compiled
+server/data/
+/client/package-lock.json
+package-lock.json
+server/client_build

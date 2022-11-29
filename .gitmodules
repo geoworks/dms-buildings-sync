@@ -1,0 +1,6 @@
+[submodule "server/deql-ms-server"]
+	path = server/deql-ms-server
+	url = https://github.com/geoworks/deql-ms-server
+[submodule "client/deql-ms-client"]
+	path = client/deql-ms-client
+	url = https://github.com/geoworks/deql-ms-client
