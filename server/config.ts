@@ -28,7 +28,7 @@ export default {
     host: '110.10.0.211',//'geo.cap.ru',//'110.10.0.211'
     port: '8888',
     layerSyncPeriod: 30000,// 2592000 //примерно месяц в милисекундах 60×60×24×30
-    layerId: '42',
+    layerId: '6387545ce3b0c4429809ee40',
   },
   buildings: {
     mainLink: 'https://api.shichuvashia.ekspa.io/GZHI/webresources/geocap/get',

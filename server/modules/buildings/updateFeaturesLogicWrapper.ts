@@ -16,12 +16,27 @@ const { config } = options;
 // import getAllProjectsFromGis from './gisConnectHelpers/getAllProjectsFromGis';
 // import createLayersWrapper from './createLayersWrapper';
 import getAllLayersFromGis from './gisConnectHelpers/getAllLayersFromGis';
+import getBuildingsJson from './getBuildingsJson';
 
 let updateFeaturesLogicWrapper = async (
   lastAuthUpdateObject: LastAuthUpdateObject,
   sessionObject: SessionObject,
 ) => {
   try {
+    try {
+      let unknownDataFromBuildings = await getBuildingsJson();
+      console.log('unknownDataFromBuildings', unknownDataFromBuildings)
+      // config.buildings.mainLink
+      // let featuresFromGis = await getFeaturesFromGis(config.gis.layerId, lastAuthUpdateObject, sessionObject,
+      //   [
+      //     '_id',
+      //   ],
+      // );
+      // console.log('featuresFromGis', featuresFromGis);
+    }
+    catch (e) {
+      console.error("here1, ", e)
+    }
     // let allLayersFromGisBeforeCheckOnNewWfsLayers = await getAllLayersFromGis(
     //   lastAuthUpdateObject,
     //   sessionObject
