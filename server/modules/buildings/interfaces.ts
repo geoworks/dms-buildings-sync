@@ -1,5 +1,16 @@
 import { GisGeometryType } from '../../deql-ms-server/modules/gis/types';
 
+export type BuildingsData = {
+  GeoCap: BuildingsDataElement[]
+}
+
+export type BuildingsDataElement = {
+  latCoordinate: string,
+  longCoordinate: string,
+  [key: string]: unknown
+}
+
+
 export type GisLayerIdWithWfsLayerIdWithGisogdFeaturesWithFeaturesFromGisToUpdate =
   {
     gisLayerId: string;
