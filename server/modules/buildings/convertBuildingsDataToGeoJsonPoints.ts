@@ -1,4 +1,4 @@
-import { BuildingsData, BuildingFeature } from './interfaces'
+import { BuildingsData, BuildingFeature, BuildingsDataElement } from './interfaces'
 
 let convertBuildingsDataToGeoJsonPoints = (
   buildingsData: BuildingsData,
@@ -7,6 +7,13 @@ let convertBuildingsDataToGeoJsonPoints = (
     let buildingsFeatures: BuildingFeature[] = [];
     buildingsData.GeoCap.forEach(building => {
       let buildingPropeties = Object.assign({}, building);
+      //в админке почему-то все кастуется к lower case
+      let buildingPropetiesLowerCased: {
+        [key: string]: unknown
+      } = {};
+      Object.entries(buildingPropeties).forEach(e => {
+        buildingPropeties[e[0].toLowerCase()] = e[1]
+      })
       buildingsFeatures.push({
         type: 'Feature',
         geometry:
@@ -14,7 +21,7 @@ let convertBuildingsDataToGeoJsonPoints = (
           type: "Point",
           coordinates: [building.longCoordinate, building.latCoordinate],
         },
-        properties: buildingPropeties,
+        properties: buildingPropetiesLowerCased,
         ot: "zdanie"//todo - use from config
       });
     });
