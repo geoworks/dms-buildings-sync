@@ -9,13 +9,13 @@ export default {
     useEngine: false,
   },
   redis: {
-    host: '110.10.0.212',
+    host: getDmsHost(),//'110.10.0.212',
     port: 32768,
     password: 'mapcam-redispass',
   },
   mongodb: {
     options: {
-      host: '110.10.0.212',
+      host: getDmsHost(),//'110.10.0.212',
       port: 27020,
     },
     username: 'vsweb',
@@ -23,12 +23,12 @@ export default {
     dbName: 'admin',
   },
   gis: {
-    login: 'gisogdsyncbotplan',
-    password: 'wygfh2y40fhahgf3804fslbfp9834hfjkbnfds',
-    host: '110.10.0.211',//'geo.cap.ru',//'110.10.0.211'
+    login: '',
+    password: '',
+    host: getDmsHost(),//'geo.cap.ru',//'110.10.0.211'
     port: '8888',
     layerSyncPeriod: 30000,// 2592000 //примерно месяц в милисекундах 60×60×24×30
-    layerId: '6387545ce3b0c4429809ee40',
+    layerId: '',
   },
   buildings: {
     mainLink: 'https://api.shichuvashia.ekspa.io/GZHI/webresources/geocap/get',
@@ -44,7 +44,7 @@ export default {
     turnOn: true, // если логгер выключен то не будет отправлять данные на сервис dms-logger.
     // connections: {
     // настройки логгера будут браться отсюда, если standAloneMode true.
-    host: '110.10.0.212',
+    host: getDmsHost(),//'110.10.0.212',
     port: '8891',
     docker_container_name: 'dms-logger-aivanov',
     // }
