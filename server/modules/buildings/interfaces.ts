@@ -154,7 +154,7 @@ export interface BuildingFeature {
   properties: {
     [key: string]: unknown
   },
-  ot: "Point" //todo - use from config
+  ot: "zdanie" //нужно учитывать что если на русском вводишь поле, то русский автоматом конвертируется в англ и из-за этого может происходить несоотвествие
 }
 
 export interface GisogdFeature {

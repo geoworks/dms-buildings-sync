@@ -4,6 +4,7 @@ import options from '../../deql-ms-server/tools/options';
 const { config } = options;
 
 async function serviceWrapper() {
+  let timeout = config.gis.layerSyncPeriod ? config.gis.layerSyncPeriod : 60000;
   while (1) {
     try {
       console.log('config', config)
@@ -25,9 +26,12 @@ async function serviceWrapper() {
       throw e
     }
     await new Promise(
-      resolve =>
-        setTimeout(
-          resolve, config.gis.layerSyncPeriod)
+      resolve => {
+        console.log('before timeout')
+        return setTimeout(
+          resolve, timeout);
+      }
+
     );
   }
 

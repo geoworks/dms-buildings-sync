@@ -20,7 +20,7 @@ services:
       gis_password: ''
       gis_host: 192.168.22.186
       gis_port: '8888'
-      gis_layerSyncPeriod: 30000
+      gis_layerSyncPeriod: '60000'
       gis_layerId: ''
       buildings_mainLink: 'https://api.shichuvashia.ekspa.io/GZHI/webresources/geocap/get'
     env_file:

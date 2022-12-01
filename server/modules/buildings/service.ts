@@ -17,14 +17,15 @@ if (!config.gis.port) {
 if (!config.gis.layerSyncPeriod) {
   throw new Error('Пожалуйста укажите config.gis.layerSyncPeriod(как gis_layerSyncPeriod) в enviroment приложения');
 }
-if (config.gis.layerSyncPeriod < 30000) {
-  throw new Error('Пожалуйста укажите config.gis.layerSyncPeriod(как gis_layerSyncPeriod) больше чем 30сек. Меньшего времени возможно будет недостаточно для итерации синхронизации');
+if (config.gis.layerSyncPeriod < 60000) {
+  throw new Error('Пожалуйста укажите config.gis.layerSyncPeriod(как gis_layerSyncPeriod) больше чем 60сек. Меньшего времени возможно будет недостаточно для итерации синхронизации');
 }
 if (!config.gis.layerId) {
   throw new Error('Пожалуйста укажите config.gis.layerId(как gis_layerId) в enviroment приложения');
 }
 
 serviceWrapper().catch((e) => {
+  console.log('serviceWrapper().catch')
   console.error(e);
   process.exit(1);
 });

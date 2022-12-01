@@ -27,7 +27,7 @@ export default {
     password: '',
     host: getDmsHost(),//'geo.cap.ru',//'110.10.0.211'
     port: '8888',
-    layerSyncPeriod: 30000,// 2592000 //примерно месяц в милисекундах 60×60×24×30
+    layerSyncPeriod: 60000,// 2592000 //примерно месяц в милисекундах 60×60×24×30
     layerId: '',
   },
   buildings: {
