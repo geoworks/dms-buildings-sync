@@ -1,4 +1,6 @@
 import { GisGeometryType } from '../../deql-ms-server/modules/gis/types';
+import options from '../../deql-ms-server/tools/options';
+const { config } = options;
 
 export type BuildingsData = {
   GeoCap: BuildingsDataElement[]
@@ -152,7 +154,7 @@ export interface BuildingFeature {
   properties: {
     [key: string]: unknown
   },
-  ot: "Point"//todo - use from config
+  ot: 'здание' //todo - use from config
 }
 
 export interface GisogdFeature {

@@ -15,7 +15,7 @@ let convertBuildingsDataToGeoJsonPoints = (
           coordinates: [building.latCoordinate, building.longCoordinate],
         },
         properties: buildingPropeties,
-        ot: "Point"//todo - use from config
+        ot: "здание"//todo - use from config
       });
     });
     return buildingsFeatures;
