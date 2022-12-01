@@ -2,10 +2,10 @@ import fetch from 'node-fetch';
 import IsAuthorizedInGis from './isAuthorizedInGis';
 import GisAuth from './gisAuth';
 import {
-  FeatureFromGis,
+  BuildingFeatureFromGis,
   SessionObject,
   LastAuthUpdateObject,
-  FeatureFromGisogdToCreateInGis,
+  BuildingFeature,
   FeatureToUpdateInGis,
 } from '../interfaces';
 // import getGisPlace from './getGisPlace';
@@ -14,9 +14,9 @@ const { config } = options;
 
 export let updateGisLayerFeatures = async (
   layerId: string,
-  createFeaturesArray: FeatureFromGisogdToCreateInGis[],
+  createFeaturesArray: BuildingFeature[],
   updateFeaturesArray: FeatureToUpdateInGis[],
-  deleteFeaturesArray: FeatureFromGis[],
+  deleteFeaturesArray: BuildingFeatureFromGis[],
   lastAuthUpdateObject: LastAuthUpdateObject,
   sessionObject: SessionObject,
 ) => {

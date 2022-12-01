@@ -6,7 +6,7 @@ const { config } = options;
 async function serviceWrapper() {
   while (1) {
     try {
-      console.log('config.gis', config.gis)
+      console.log('config', config)
       //нужно для сохранения состояния обьекта при его мутабельной передаче в функции
       let lastAuthUpdateObject: LastAuthUpdateObject = {
         lastAuthUpdate: 0,

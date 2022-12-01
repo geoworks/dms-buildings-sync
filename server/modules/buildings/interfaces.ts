@@ -10,9 +10,6 @@ export type BuildingsDataElement = {
   [key: string]: unknown
 }
 
-
-
-
 export interface GisGeometryTypeLayerFields {
   [key: string]: {
     description: string,
