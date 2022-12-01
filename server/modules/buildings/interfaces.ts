@@ -11,21 +11,7 @@ export type BuildingsDataElement = {
 }
 
 
-export type GisLayerIdWithWfsLayerIdWithGisogdFeaturesWithFeaturesFromGisToUpdate =
-  {
-    gisLayerId: string;
-    wfsLayerId: string;
-    gisogdFeatures: GisogdFeature[];
-    featuresToDeleteInGis: FeatureFromGis[],
-  }
 
-export type GisLayerIdWithWfsLayerIdWithFeaturesToUpdateInGisToUpdate =
-  {
-    gisLayerId: string,
-    wfsLayerId: string,
-    featuresToCreateInGis: FeatureFromGisogdToCreateInGis[],//так как нет уникальных айдишников. приходится полностью удалять и создавать заного
-    featuresToDeleteInGis: FeatureFromGis[],
-  }
 
 export interface GisGeometryTypeLayerFields {
   [key: string]: {
@@ -161,14 +147,15 @@ export interface GisWfsLayersIdsWithPossibleWfsFeatures {
 
 export interface BuildingFeature {
   type: 'Feature',
-  id: string,
   geometry:
   {
     type: "Point";
-    coordinates: [number, number];
+    coordinates: [string, string];//number, number
   },
-  // geometry_name: string,//todo нужно ли?
-  properties: object
+  properties: {
+    [key: string]: unknown
+  },
+  ot: "Point"//todo - use from config
 }
 
 export interface GisogdFeature {
@@ -208,26 +195,8 @@ export interface GisogdFeature {
   properties: object
 }
 
-export interface FeatureFromGis {
-  _id: object,//new ObjectId("63491659862b350a5ab09e40")//unknown
-  properties: {
-    gisogdgemssyncfeatureid?: string
-  },
-  geometry:
-  {
-    type: "Point";
-    coordinates: [number, number];
-  }
-  |
-  {
-    type: "MultiLineString";
-    coordinates: [number, number][][];
-  }
-  |
-  {
-    type: "MultiPolygon";
-    coordinates: [number, number][][][];
-  }
+export interface BuildingFeatureFromGis {
+  _id: object,
 }
 
 export interface FeatureToUpdateInGis {
