@@ -12,10 +12,10 @@ let convertBuildingsDataToGeoJsonPoints = (
         geometry:
         {
           type: "Point",
-          coordinates: [building.latCoordinate, building.longCoordinate],
+          coordinates: [building.longCoordinate, building.latCoordinate],
         },
         properties: buildingPropeties,
-        ot: "здание"//todo - use from config
+        ot: "Point"//todo - use from config
       });
     });
     return buildingsFeatures;

@@ -154,7 +154,7 @@ export interface BuildingFeature {
   properties: {
     [key: string]: unknown
   },
-  ot: 'здание' //todo - use from config
+  ot: "Point" //todo - use from config
 }
 
 export interface GisogdFeature {
