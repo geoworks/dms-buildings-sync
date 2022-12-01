@@ -1,11 +1,11 @@
 version: "3"
 services:
-  dms-gisogd-gems-sync-general-plan-service-name:
+  dms-buildings-sync-service-name:
     build:
       context: .
       dockerfile: ./dockerfile
-    image: "geoworks/dms-gisogd-gems-sync:latest"
-    container_name: dms-gisogd-gems-sync-general-plan-container
+    image: "geoworks/dms-buildings-sync:latest"
+    container_name: dms-buildings-sync-container
     volumes:
       - /mnt/geoworks/dms-gisogd-gems-sync:/home/deql-ms/volume
     restart: always
@@ -13,69 +13,16 @@ services:
       org.label-schema.group: "mapcam"
     environment:
       host: 192.168.22.186
-      port: 5001
+      port: 5010
       redis_host: 192.168.22.186
-      gis_login: "gisogdsyncbotplan"
-      gis_password: 'wygfh2y40fhahgf3804fslbfp9834hfjkbnfds'
-      gis_host: 'localhost'
+      redis_port: 32768
+      gis_login: ""
+      gis_password: ''
+      gis_host: 192.168.22.186
       gis_port: '8888'
-      gis_layerSyncPeriod: 2592000 #примерно месяц в милисекундах 60сек×60мин×24часа×30дней
-      gis_projectId: '88'
-      gis_syncLayersPrefix: 'gisogdgenplan'
-      gis_http: 'http'
-      gisogdGems_redirectHost: 'localhost'
-      gisogdGems_redirectPort: '5001'
-      gisogdGems_host: 'gemsdev.reinform-int.ru'
-      gisogdGems_isNeedSpecifyPort: 'true'
-      gisogdGems_port: '443'
-      gisogdGems_username: 'geoworks_gisogd_sync'
-      gisogdGems_password: 'P@ssw0rd'
-      gisogdGems_clientId: 'jetClient'
-      gisogdGems_clientSecret: 'jetClientSecret'
-      gisogdGems_projectAlias: 'chuvashia'
-      gisogdGems_scope: 'jetapi offline_access'
-      gisogdGems_layersIds: 'chuvashia:chuvashia_geo_urban_10_functional_zone'
-    env_file:
-      - ./.env
-    logging:
-      options:
-        max-size: 1m
-    network_mode: host
-  dms-gisogd-gems-sync-land-use-and-development-rules-service-name:
-    build:
-      context: .
-      dockerfile: ./dockerfile
-    image: "geoworks/dms-gisogd-gems-sync:latest"
-    container_name: dms-gisogd-gems-sync-land-use-and-development-rules-container
-    volumes:
-      - /mnt/geoworks/dms-gisogd-gems-sync:/home/deql-ms/volume
-    restart: always
-    labels:
-      org.label-schema.group: "mapcam"
-    environment:
-      host: 192.168.22.186
-      port: 5002
-      redis_host: 192.168.22.186
-      gis_login: 'gisogdsyncbotzemlya'
-      gis_password: '734gw8yevdfgw98yg49gfgawygdfoi'
-      gis_host: 'localhost'
-      gis_port: '8888'
-      gis_layerSyncPeriod: 2592000 #примерно месяц в милисекундах 60сек×60мин×24часа×30дней
-      gis_projectId: '88'
-      gis_syncLayersPrefix: 'gisogdzemlya'
-      gis_http: 'http'
-      gisogdGems_redirectHost: 'localhost'
-      gisogdGems_redirectPort: '5002'
-      gisogdGems_host: 'gemsdev.reinform-int.ru'
-      gisogdGems_isNeedSpecifyPort: 'true'
-      gisogdGems_port: '443'
-      gisogdGems_username: 'geoworks_gisogd_sync'
-      gisogdGems_password: 'P@ssw0rd'
-      gisogdGems_clientId: 'jetClient'
-      gisogdGems_clientSecret: 'jetClientSecret'
-      gisogdGems_projectAlias: 'chuvashia'
-      gisogdGems_scope: 'jetapi offline_access'
-      gisogdGems_layersIds: 'chuvashia:chuvashia_geo_urban_terzone'
+      gis_layerSyncPeriod: 30000
+      gis_layerId: ''
+      buildings_mainLink: 'https://api.shichuvashia.ekspa.io/GZHI/webresources/geocap/get'
     env_file:
       - ./.env
     logging:
