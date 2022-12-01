@@ -159,6 +159,18 @@ export interface GisWfsLayersIdsWithPossibleWfsFeatures {
   [key: string]: unknown
 }
 
+export interface BuildingFeature {
+  type: 'Feature',
+  id: string,
+  geometry:
+  {
+    type: "Point";
+    coordinates: [number, number];
+  },
+  // geometry_name: string,//todo нужно ли?
+  properties: object
+}
+
 export interface GisogdFeature {
   type: 'Feature',
   id: string,
