@@ -12,7 +12,7 @@ let convertBuildingsDataToGeoJsonPoints = (
         [key: string]: unknown
       } = {};
       Object.entries(buildingPropeties).forEach(e => {
-        buildingPropeties[e[0].toLowerCase()] = e[1]
+        buildingPropetiesLowerCased[e[0].toLowerCase()] = e[1]
       })
       buildingsFeatures.push({
         type: 'Feature',
