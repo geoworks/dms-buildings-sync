@@ -17,6 +17,7 @@ const { config } = options;
 // import createLayersWrapper from './createLayersWrapper';
 import getAllLayersFromGis from './gisConnectHelpers/getAllLayersFromGis';
 import getBuildingsJson from './getBuildingsJson';
+import convertUnknownToBuildingsData from './convertUnknownToBuildingsData';
 
 let updateFeaturesLogicWrapper = async (
   lastAuthUpdateObject: LastAuthUpdateObject,
@@ -26,6 +27,8 @@ let updateFeaturesLogicWrapper = async (
     try {
       let unknownDataFromBuildings = await getBuildingsJson();
       console.log('unknownDataFromBuildings', unknownDataFromBuildings)
+      let buildingsData = convertUnknownToBuildingsData(unknownDataFromBuildings);
+      console.log('buildingsData', buildingsData);
       // config.buildings.mainLink
       // let featuresFromGis = await getFeaturesFromGis(config.gis.layerId, lastAuthUpdateObject, sessionObject,
       //   [
