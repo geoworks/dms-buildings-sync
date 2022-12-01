@@ -33,6 +33,7 @@ async function serviceWrapper() {
       }
 
     );
+    console.log('after timeout')
   }
 
 }

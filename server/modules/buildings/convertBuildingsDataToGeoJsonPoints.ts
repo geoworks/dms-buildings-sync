@@ -1,4 +1,4 @@
-import { BuildingsData, BuildingFeature, BuildingsDataElement } from './interfaces'
+import { BuildingsData, BuildingFeature } from './interfaces'
 
 let convertBuildingsDataToGeoJsonPoints = (
   buildingsData: BuildingsData,
